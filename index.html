@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Orion Console</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex">
+
+  <!-- Sidebar / Profil / Settings -->
+  <aside class="w-64 bg-slate-950 border-r border-slate-800 flex flex-col">
+    <div class="p-4 border-b border-slate-800">
+      <h1 class="text-xl font-bold tracking-tight">Orion Console</h1>
+      <p class="text-xs text-slate-400">Launcher personnalisable</p>
+    </div>
+
+    <div class="p-4 flex items-center gap-3 border-b border-slate-800">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-sm font-bold">
+        MD
+      </div>
+      <div>
+        <p class="text-sm font-semibold">Minedream</p>
+        <p class="text-xs text-slate-400">Profil joueur</p>
+      </div>
+    </div>
+
+    <nav class="flex-1 p-4 space-y-2 text-sm">
+      <button class="w-full text-left px-3 py-2 rounded-md bg-slate-800/60 hover:bg-slate-700 transition">
+        Dashboard
+      </button>
+      <button id="openStoreBtn" class="w-full text-left px-3 py-2 rounded-md hover:bg-slate-800 transition">
+        Store
+      </button>
+      <button class="w-full text-left px-3 py-2 rounded-md hover:bg-slate-800 transition">
+        Paramètres
+      </button>
+    </nav>
+
+    <div class="p-4 border-t border-slate-800 text-xs text-slate-500">
+      Orion OS • CrystalOS Gaming
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="flex-1 flex flex-col">
+
+    <!-- Top bar -->
+    <header class="h-16 border-b border-slate-800 flex items-center justify-between px-6">
+      <div>
+        <h2 class="text-lg font-semibold">Menu principal</h2>
+        <p class="text-xs text-slate-400">Apps & jeux épinglés</p>
+      </div>
+      <div class="flex items-center gap-3 text-xs text-slate-400">
+        <span id="clock"></span>
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span> En ligne
+      </div>
+    </header>
+
+    <!-- Launcher grid -->
+    <section class="flex-1 p-6">
+      <div id="launcherGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <!-- Exemples d’apps déjà dans le menu -->
+        <button class="group relative aspect-square rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex flex-col items-center justify-center shadow-lg hover:scale-[1.03] hover:shadow-xl transition">
+          <span class="text-3xl mb-1">🎮</span>
+          <span class="text-xs font-semibold tracking-wide uppercase">FH6</span>
+          <span class="absolute bottom-2 right-2 text-[10px] px-2 py-0.5 rounded-full bg-black/40 backdrop-blur">
+            Jeu
+          </span>
+        </button>
+
+        <button class="group relative aspect-square rounded-2xl bg-gradient-to-br from-emerald-500 to-cyan-500 flex flex-col items-center justify-center shadow-lg hover:scale-[1.03] hover:shadow-xl transition">
+          <span class="text-3xl mb-1">🎧</span>
+          <span class="text-xs font-semibold tracking-wide uppercase">Music</span>
+          <span class="absolute bottom-2 right-2 text-[10px] px-2 py-0.5 rounded-full bg-black/40 backdrop-blur">
+            App
+          </span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Store modal -->
+  <div id="storeModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50">
+    <div class="bg-slate-950 border border-slate-800 rounded-2xl w-full max-w-4xl max-h-[80vh] flex flex-col overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-3 border-b border-slate-800">
+        <div>
+          <h3 class="text-base font-semibold">Store</h3>
+          <p class="text-xs text-slate-400">Installe des apps et jeux dans ton launcher</p>
+        </div>
+        <button id="closeStoreBtn" class="text-slate-400 hover:text-slate-100 text-sm px-2 py-1 rounded-md hover:bg-slate-800">
+          Fermer
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto p-5 space-y-4 text-sm">
+        <!-- Catégorie Jeux -->
+        <div>
+          <h4 class="text-xs uppercase tracking-wide text-slate-400 mb-2">Jeux</h4>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <!-- Item -->
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-lg">
+                🚗
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-semibold">Street Racer X</p>
+                <p class="text-[11px] text-slate-400">Arcade • 2.1 Go</p>
+              </div>
+              <button
+                class="install-btn text-xs px-3 py-1 rounded-md bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400"
+                data-name="Street Racer X"
+                data-type="Jeu"
+                data-emoji="🚗"
+              >
+                Installer
+              </button>
+            </div>
+
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-sky-500 flex items-center justify-center text-lg">
+                🧙
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-semibold">Crystal Quest</p>
+                <p class="text-[11px] text-slate-400">RPG • 4.8 Go</p>
+              </div>
+              <button
+                class="install-btn text-xs px-3 py-1 rounded-md bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400"
+                data-name="Crystal Quest"
+                data-type="Jeu"
+                data-emoji="🧙"
+              >
+                Installer
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Catégorie Apps -->
+        <div>
+          <h4 class="text-xs uppercase tracking-wide text-slate-400 mb-2">Applications</h4>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-lime-500 flex items-center justify-center text-lg">
+                🎬
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-semibold">MovieTime</p>
+                <p class="text-[11px] text-slate-400">Streaming • 120 Mo</p>
+              </div>
+              <button
+                class="install-btn text-xs px-3 py-1 rounded-md bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400"
+                data-name="MovieTime"
+                data-type="App"
+                data-emoji="🎬"
+              >
+                Installer
+              </button>
+            </div>
+
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/70 border border-slate-800">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-lg">
+                💾
+              </div>
+              <div class="flex-1">
+                <p class="text-sm font-semibold">ReplayHub</p>
+                <p class="text-[11px] text-slate-400">Cloud • 80 Mo</p>
+              </div>
+              <button
+                class="install-btn text-xs px-3 py-1 rounded-md bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400"
+                data-name="ReplayHub"
+                data-type="App"
+                data-emoji="💾"
+              >
+                Installer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Store -->
+      <div class="px-5 py-3 border-t border-slate-800 text-[11px] text-slate-500 flex justify-between">
+        <span>Store Orion • Démo front-end</span>
+        <span>Tu peux brancher une API plus tard</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Horloge simple
+    function updateClock() {
+      const clock = document.getElementById('clock');
+      const now = new Date();
+      clock.textContent = now.toLocaleTimeString('fr-FR', {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Store modal
+    const storeModal = document.getElementById('storeModal');
+    const openStoreBtn = document.getElementById('openStoreBtn');
+    const closeStoreBtn = document.getElementById('closeStoreBtn');
+
+    openStoreBtn.addEventListener('click', () => {
+      storeModal.classList.remove('hidden');
+      storeModal.classList.add('flex');
+    });
+
+    closeStoreBtn.addEventListener('click', () => {
+      storeModal.classList.add('hidden');
+      storeModal.classList.remove('flex');
+    });
+
+    storeModal.addEventListener('click', (e) => {
+      if (e.target === storeModal) {
+        storeModal.classList.add('hidden');
+        storeModal.classList.remove('flex');
+      }
+    });
+
+    // Ajout dynamique au menu principal
+    const launcherGrid = document.getElementById('launcherGrid');
+
+    function createLauncherTile(name, type, emoji) {
+      const btn = document.createElement('button');
+      btn.className =
+        'group relative aspect-square rounded-2xl bg-slate-800 flex flex-col items-center justify-center shadow-lg hover:scale-[1.03] hover:shadow-xl transition';
+      btn.innerHTML = `
+        <span class="text-3xl mb-1">${emoji}</span>
+        <span class="text-xs font-semibold tracking-wide uppercase">${name}</span>
+        <span class="absolute bottom-2 right-2 text-[10px] px-2 py-0.5 rounded-full bg-black/40 backdrop-blur">
+          ${type}
+        </span>
+      `;
+      return btn;
+    }
+
+    document.querySelectorAll('.install-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-name');
+        const type = btn.getAttribute('data-type');
+        const emoji = btn.getAttribute('data-emoji');
+
+        const tile = createLauncherTile(name, type, emoji);
+        launcherGrid.appendChild(tile);
+
+        btn.textContent = 'Installé';
+        btn.disabled = true;
+        btn.classList.remove('bg-emerald-500', 'hover:bg-emerald-400');
+        btn.classList.add('bg-slate-700', 'text-slate-300');
+      });
+    });
+  </script>
+</body>
+</html>
