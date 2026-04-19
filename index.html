@@ -2,12 +2,13 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Orion Console</title>
+  <title>Orion Console Launcher</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-slate-900 text-slate-100 min-h-screen flex">
 
-  <!-- Sidebar / Profil / Settings -->
+  <!-- Sidebar -->
   <aside class="w-64 bg-slate-950 border-r border-slate-800 flex flex-col">
     <div class="p-4 border-b border-slate-800">
       <h1 class="text-xl font-bold tracking-tight">Orion Console</h1>
@@ -41,7 +42,7 @@
     </div>
   </aside>
 
-  <!-- Main content -->
+  <!-- Main -->
   <main class="flex-1 flex flex-col">
 
     <!-- Top bar -->
@@ -58,30 +59,14 @@
 
     <!-- Launcher grid -->
     <section class="flex-1 p-6">
-      <div id="launcherGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-        <!-- Exemples d’apps déjà dans le menu -->
-        <button class="group relative aspect-square rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex flex-col items-center justify-center shadow-lg hover:scale-[1.03] hover:shadow-xl transition">
-          <span class="text-3xl mb-1">🎮</span>
-          <span class="text-xs font-semibold tracking-wide uppercase">FH6</span>
-          <span class="absolute bottom-2 right-2 text-[10px] px-2 py-0.5 rounded-full bg-black/40 backdrop-blur">
-            Jeu
-          </span>
-        </button>
-
-        <button class="group relative aspect-square rounded-2xl bg-gradient-to-br from-emerald-500 to-cyan-500 flex flex-col items-center justify-center shadow-lg hover:scale-[1.03] hover:shadow-xl transition">
-          <span class="text-3xl mb-1">🎧</span>
-          <span class="text-xs font-semibold tracking-wide uppercase">Music</span>
-          <span class="absolute bottom-2 right-2 text-[10px] px-2 py-0.5 rounded-full bg-black/40 backdrop-blur">
-            App
-          </span>
-        </button>
-      </div>
+      <div id="launcherGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
     </section>
   </main>
 
-  <!-- Store modal -->
+  <!-- Store Modal -->
   <div id="storeModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50">
     <div class="bg-slate-950 border border-slate-800 rounded-2xl w-full max-w-4xl max-h-[80vh] flex flex-col overflow-hidden">
+
       <div class="flex items-center justify-between px-5 py-3 border-b border-slate-800">
         <div>
           <h3 class="text-base font-semibold">Store</h3>
@@ -93,167 +78,183 @@
       </div>
 
       <div class="flex-1 overflow-y-auto p-5 space-y-4 text-sm">
-        <!-- Catégorie Jeux -->
+
+        <!-- Jeux -->
         <div>
           <h4 class="text-xs uppercase tracking-wide text-slate-400 mb-2">Jeux</h4>
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            <!-- Item -->
+
             <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/70 border border-slate-800">
-              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-lg">
-                🚗
-              </div>
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-lg">🚗</div>
               <div class="flex-1">
                 <p class="text-sm font-semibold">Street Racer X</p>
                 <p class="text-[11px] text-slate-400">Arcade • 2.1 Go</p>
               </div>
-              <button
-                class="install-btn text-xs px-3 py-1 rounded-md bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400"
-                data-name="Street Racer X"
-                data-type="Jeu"
-                data-emoji="🚗"
-              >
-                Installer
-              </button>
+              <button class="install-btn text-xs px-3 py-1 rounded-md bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400"
+                data-name="Street Racer X" data-type="Jeu" data-emoji="🚗">Installer</button>
             </div>
 
             <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/70 border border-slate-800">
-              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-sky-500 flex items-center justify-center text-lg">
-                🧙
-              </div>
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-sky-500 flex items-center justify-center text-lg">🧙</div>
               <div class="flex-1">
                 <p class="text-sm font-semibold">Crystal Quest</p>
                 <p class="text-[11px] text-slate-400">RPG • 4.8 Go</p>
               </div>
-              <button
-                class="install-btn text-xs px-3 py-1 rounded-md bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400"
-                data-name="Crystal Quest"
-                data-type="Jeu"
-                data-emoji="🧙"
-              >
-                Installer
-              </button>
+              <button class="install-btn text-xs px-3 py-1 rounded-md bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400"
+                data-name="Crystal Quest" data-type="Jeu" data-emoji="🧙">Installer</button>
             </div>
+
           </div>
         </div>
 
-        <!-- Catégorie Apps -->
+        <!-- Apps -->
         <div>
           <h4 class="text-xs uppercase tracking-wide text-slate-400 mb-2">Applications</h4>
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+
             <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/70 border border-slate-800">
-              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-lime-500 flex items-center justify-center text-lg">
-                🎬
-              </div>
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-lime-500 flex items-center justify-center text-lg">🎬</div>
               <div class="flex-1">
                 <p class="text-sm font-semibold">MovieTime</p>
                 <p class="text-[11px] text-slate-400">Streaming • 120 Mo</p>
               </div>
-              <button
-                class="install-btn text-xs px-3 py-1 rounded-md bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400"
-                data-name="MovieTime"
-                data-type="App"
-                data-emoji="🎬"
-              >
-                Installer
-              </button>
+              <button class="install-btn text-xs px-3 py-1 rounded-md bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400"
+                data-name="MovieTime" data-type="App" data-emoji="🎬">Installer</button>
             </div>
 
             <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/70 border border-slate-800">
-              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-lg">
-                💾
-              </div>
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-lg">💾</div>
               <div class="flex-1">
                 <p class="text-sm font-semibold">ReplayHub</p>
                 <p class="text-[11px] text-slate-400">Cloud • 80 Mo</p>
               </div>
-              <button
-                class="install-btn text-xs px-3 py-1 rounded-md bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400"
-                data-name="ReplayHub"
-                data-type="App"
-                data-emoji="💾"
-              >
-                Installer
-              </button>
+              <button class="install-btn text-xs px-3 py-1 rounded-md bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400"
+                data-name="ReplayHub" data-type="App" data-emoji="💾">Installer</button>
             </div>
+
           </div>
         </div>
+
       </div>
 
-      <!-- Footer Store -->
       <div class="px-5 py-3 border-t border-slate-800 text-[11px] text-slate-500 flex justify-between">
         <span>Store Orion • Démo front-end</span>
-        <span>Tu peux brancher une API plus tard</span>
+        <span>API personnalisable</span>
       </div>
+
     </div>
   </div>
 
+  <!-- SCRIPT -->
   <script>
-    // Horloge simple
+
+    /* Horloge */
     function updateClock() {
-      const clock = document.getElementById('clock');
-      const now = new Date();
-      clock.textContent = now.toLocaleTimeString('fr-FR', {
-        hour: '2-digit',
-        minute: '2-digit'
-      });
+      document.getElementById("clock").textContent =
+        new Date().toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
     }
     setInterval(updateClock, 1000);
     updateClock();
 
-    // Store modal
-    const storeModal = document.getElementById('storeModal');
-    const openStoreBtn = document.getElementById('openStoreBtn');
-    const closeStoreBtn = document.getElementById('closeStoreBtn');
-
-    openStoreBtn.addEventListener('click', () => {
-      storeModal.classList.remove('hidden');
-      storeModal.classList.add('flex');
-    });
-
-    closeStoreBtn.addEventListener('click', () => {
-      storeModal.classList.add('hidden');
-      storeModal.classList.remove('flex');
-    });
-
-    storeModal.addEventListener('click', (e) => {
-      if (e.target === storeModal) {
-        storeModal.classList.add('hidden');
-        storeModal.classList.remove('flex');
-      }
-    });
-
-    // Ajout dynamique au menu principal
-    const launcherGrid = document.getElementById('launcherGrid');
-
-    function createLauncherTile(name, type, emoji) {
-      const btn = document.createElement('button');
-      btn.className =
-        'group relative aspect-square rounded-2xl bg-slate-800 flex flex-col items-center justify-center shadow-lg hover:scale-[1.03] hover:shadow-xl transition';
-      btn.innerHTML = `
-        <span class="text-3xl mb-1">${emoji}</span>
-        <span class="text-xs font-semibold tracking-wide uppercase">${name}</span>
-        <span class="absolute bottom-2 right-2 text-[10px] px-2 py-0.5 rounded-full bg-black/40 backdrop-blur">
-          ${type}
-        </span>
-      `;
-      return btn;
+    /* LocalStorage */
+    function getInstalledApps() {
+      return JSON.parse(localStorage.getItem("installedApps") || "[]");
+    }
+    function saveInstalledApps(apps) {
+      localStorage.setItem("installedApps", JSON.stringify(apps));
     }
 
-    document.querySelectorAll('.install-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const name = btn.getAttribute('data-name');
-        const type = btn.getAttribute('data-type');
-        const emoji = btn.getAttribute('data-emoji');
+    /* Création tuile */
+    function createLauncherTile(name, type, emoji) {
+      const tile = document.createElement("div");
+      tile.className =
+        "group relative aspect-square rounded-2xl bg-slate-800 flex flex-col items-center justify-center shadow-lg hover:scale-[1.03] hover:shadow-xl transition";
 
-        const tile = createLauncherTile(name, type, emoji);
-        launcherGrid.appendChild(tile);
+      tile.innerHTML = `
+        <span class="text-3xl mb-1">${emoji}</span>
+        <span class="text-xs font-semibold tracking-wide uppercase">${name}</span>
 
-        btn.textContent = 'Installé';
-        btn.disabled = true;
-        btn.classList.remove('bg-emerald-500', 'hover:bg-emerald-400');
-        btn.classList.add('bg-slate-700', 'text-slate-300');
+        <span class="absolute bottom-2 right-2 text-[10px] px-2 py-0.5 rounded-full bg-black/40 backdrop-blur">${type}</span>
+
+        <button class="uninstall-btn absolute top-2 right-2 text-[10px] px-2 py-1 rounded bg-red-600 text-white opacity-0 group-hover:opacity-100 transition">
+          Désinstaller
+        </button>
+      `;
+
+      tile.querySelector(".uninstall-btn").addEventListener("click", () => {
+        const apps = getInstalledApps().filter(a => a.name !== name);
+        saveInstalledApps(apps);
+        tile.remove();
+        updateStoreButtons();
+      });
+
+      return tile;
+    }
+
+    /* Installer */
+    function installApp(name, type, emoji) {
+      const apps = getInstalledApps();
+      if (!apps.some(a => a.name === name)) {
+        apps.push({ name, type, emoji });
+        saveInstalledApps(apps);
+      }
+      launcherGrid.appendChild(createLauncherTile(name, type, emoji));
+      updateStoreButtons();
+    }
+
+    /* Store buttons */
+    function updateStoreButtons() {
+      const apps = getInstalledApps();
+      document.querySelectorAll(".install-btn").forEach(btn => {
+        const name = btn.dataset.name;
+        if (apps.some(a => a.name === name)) {
+          btn.textContent = "Installé";
+          btn.disabled = true;
+          btn.classList.remove("bg-emerald-500");
+          btn.classList.add("bg-slate-700", "text-slate-300");
+        } else {
+          btn.textContent = "Installer";
+          btn.disabled = false;
+          btn.classList.add("bg-emerald-500");
+          btn.classList.remove("bg-slate-700", "text-slate-300");
+        }
+      });
+    }
+
+    /* Chargement au démarrage */
+    const launcherGrid = document.getElementById("launcherGrid");
+    window.addEventListener("load", () => {
+      getInstalledApps().forEach(app => {
+        launcherGrid.appendChild(createLauncherTile(app.name, app.type, app.emoji));
+      });
+      updateStoreButtons();
+    });
+
+    /* Install depuis Store */
+    document.querySelectorAll(".install-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        installApp(btn.dataset.name, btn.dataset.type, btn.dataset.emoji);
       });
     });
+
+    /* Modal Store */
+    const storeModal = document.getElementById("storeModal");
+    document.getElementById("openStoreBtn").onclick = () => {
+      storeModal.classList.remove("hidden");
+      storeModal.classList.add("flex");
+    };
+    document.getElementById("closeStoreBtn").onclick = () => {
+      storeModal.classList.add("hidden");
+      storeModal.classList.remove("flex");
+    };
+    storeModal.onclick = e => {
+      if (e.target === storeModal) {
+        storeModal.classList.add("hidden");
+        storeModal.classList.remove("flex");
+      }
+    };
+
   </script>
+
 </body>
 </html>
